@@ -1,0 +1,40 @@
+Implement Binary Search Tree ADT using Array
+
+CODE:
+
+#include<stdio.h>
+
+int binarysearch(int array[],int x,int low,int high)
+{
+ if(high >= low)
+ {
+  int mid = low + (high - low)/2;
+
+  if(array[mid] == x)
+  return mid;
+
+  if(array[mid] > x)
+  return binarysearch(array,x,low,mid - 1);
+
+  return binarysearch(array,x,mid + 1,high);
+ }
+  return -1;
+}
+
+int main(void)
+{
+ int array[] = {10,20,30,40,50,60,70,80,90,100};
+ int n = sizeof(array)/sizeof(array[0]);
+ int x = 90;
+ int result = binarysearch(array,x,0,n-1);
+ if(result == -1)
+   printf("Not found");
+ else
+ printf("Element is found at index %d",result);
+ return 0;
+}getch();
+
+
+OUTPUT:
+Element is found at index 8.
+
