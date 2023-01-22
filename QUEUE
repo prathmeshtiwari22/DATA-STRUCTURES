@@ -1,0 +1,349 @@
+CODE:
+
+#include<stdio.h>
+#define MAX 5
+int FRONT=-1, REAR=-1;
+int queue[MAX];
+void enqueue();
+void dequeue();
+void display();
+void peek();
+void main()
+{
+ int ch, n;
+ while(1)
+ {
+ printf("\n1.Insert\n2.Delete\n3.Display\n4.peek\n5.Exit   ");
+ scanf("%d",&ch);
+ switch(ch)
+ {
+  case 1:
+  {
+   enqueue();
+   break;
+  }
+  case 2:
+  {
+   dequeue();
+   break;
+  }
+  case 3:
+  {
+   display();
+   break;
+  }
+  case 4:
+  {
+   peek();
+   break;
+  }
+  case 5:
+  {
+   exit(1);
+  }
+  default:
+  {
+   printf("\nWrong choice");
+   break;
+  }
+ }
+ }
+}
+
+void enqueue(int n)
+{
+ if((REAR==MAX-1 && FRONT==0) || FRONT==REAR+1)
+ {
+  printf("\nQueue overflow");
+ }
+ else
+ {
+  if(FRONT == -1)
+  {
+   FRONT = 0;
+  }
+  REAR = (REAR+1)%MAX;
+  printf("Enter element: ");
+  scanf("%d",&n);
+  queue[REAR] = n;
+ }
+}
+
+void dequeue()
+{
+ if(FRONT == -1)
+ {
+  printf("\nQueue underflow");
+ }
+ else if(FRONT == REAR)
+ {
+  printf("%d deleted",queue[FRONT]);
+  FRONT = -1;
+  REAR = -1;
+ }
+ else
+ {
+  printf("\n %d deleted",queue[FRONT]);
+  FRONT++;
+ }
+}
+
+void display()
+{
+ int i;
+ if(FRONT==-1)
+ {
+  printf("\nQueue underflow");
+ }
+ else if(FRONT > REAR)
+ {
+  for(i=FRONT; i<MAX; i++)
+  {
+   printf("\nElements are: ");
+   printf("\t%d",queue[i]);
+  }
+  for(i=0; i<=REAR; i++)
+  {
+   printf("\t%d",queue[i]);
+  }
+ }
+ else
+ {
+  for(i=FRONT; i<= REAR; i++)
+  {
+   printf("\t%d",queue[i]);
+  }
+ }
+}
+
+void peek()
+{
+ if(FRONT==-1)
+ {
+  printf("\nQueue underflow");
+ }
+ else
+ {
+  printf("Last element: %d",queue[REAR]);
+ }
+}
+
+
+
+OUTPUT:
+
+1.Insert
+2.Delete
+3.Display
+4.peek
+5.Exit   1
+Enter element: 2
+1.Insert
+2.Delete
+3.Display
+4.peek
+5.Exit   1
+Enter element: 3
+1.Insert
+2.Delete
+3.Display
+4.peek
+5.Exit   3
+2 3
+1.Insert
+2.Delete
+3.Display
+4.peek
+5.Exit   4
+Last element: 3
+1.Insert
+2.Delete
+3.Display
+4.peek
+5.Exit   2
+2 deleted
+1.Insert
+2.Delete
+3.Display
+4.peek
+CODE:
+
+#include<stdio.h>
+#define MAX 5
+int FRONT=-1, REAR=-1;
+int queue[MAX];
+void enqueue();
+void dequeue();
+void display();
+void peek();
+void main()
+{
+ int ch, n;
+ while(1)
+ {
+ printf("\n1.Insert\n2.Delete\n3.Display\n4.peek\n5.Exit   ");
+ scanf("%d",&ch);
+ switch(ch)
+ {
+  case 1:
+  {
+   enqueue();
+   break;
+  }
+  case 2:
+  {
+   dequeue();
+   break;
+  }
+  case 3:
+  {
+   display();
+   break;
+  }
+  case 4:
+  {
+   peek();
+   break;
+  }
+  case 5:
+  {
+   exit(1);
+  }
+  default:
+  {
+   printf("\nWrong choice");
+   break;
+  }
+ }
+ }
+}
+
+void enqueue(int n)
+{
+ if((REAR==MAX-1 && FRONT==0) || FRONT==REAR+1)
+ {
+  printf("\nQueue overflow");
+ }
+ else
+ {
+  if(FRONT == -1)
+  {
+   FRONT = 0;
+  }
+  REAR = (REAR+1)%MAX;
+  printf("Enter element: ");
+  scanf("%d",&n);
+  queue[REAR] = n;
+ }
+}
+
+void dequeue()
+{
+ if(FRONT == -1)
+ {
+  printf("\nQueue underflow");
+ }
+ else if(FRONT == REAR)
+ {
+  printf("%d deleted",queue[FRONT]);
+  FRONT = -1;
+  REAR = -1;
+ }
+ else
+ {
+  printf("\n %d deleted",queue[FRONT]);
+  FRONT++;
+ }
+}
+
+void display()
+{
+ int i;
+ if(FRONT==-1)
+ {
+  printf("\nQueue underflow");
+ }
+ else if(FRONT > REAR)
+ {
+  for(i=FRONT; i<MAX; i++)
+  {
+   printf("\nElements are: ");
+   printf("\t%d",queue[i]);
+  }
+  for(i=0; i<=REAR; i++)
+  {
+   printf("\t%d",queue[i]);
+  }
+ }
+ else
+ {
+  for(i=FRONT; i<= REAR; i++)
+  {
+   printf("\t%d",queue[i]);
+  }
+ }
+}
+
+void peek()
+{
+ if(FRONT==-1)
+ {
+  printf("\nQueue underflow");
+ }
+ else
+ {
+  printf("Last element: %d",queue[REAR]);
+ }
+}
+
+
+
+OUTPUT:
+
+1.Insert
+2.Delete
+3.Display
+4.peek
+5.Exit   1
+Enter element: 2
+1.Insert
+2.Delete
+3.Display
+4.peek
+5.Exit   1
+Enter element: 3
+1.Insert
+2.Delete
+3.Display
+4.peek
+5.Exit   3
+2 3
+1.Insert
+2.Delete
+3.Display
+4.peek
+5.Exit   4
+Last element: 3
+1.Insert
+2.Delete
+3.Display
+4.peek
+5.Exit   2
+2 deleted
+1.Insert
+2.Delete
+3.Display
+4.peek
+5.Exit   3
+3
+1.Insert
+2.Delete
+3.Display
+4.peek    3
+3
+1.Insert
+2.Delete
+3.Display
+4.peek
+
+
